@@ -1,7 +1,7 @@
 
 import TotalBalanceBox from '@/components/TotalBalanceBox';
-import HeaderBox from '@/components/ui/HeaderBox'
-import React from 'react'
+import HeaderBox from '@/components/ui/HeaderBox';
+import React from 'react';
 
 const Home = () => {
   const LoggedIn = {firstName: 'Mat'};
