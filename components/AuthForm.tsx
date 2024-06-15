@@ -22,7 +22,7 @@ import { authFormSchema } from '@/lib/utils';
 import { Loader2 } from 'lucide-react';
 import { error } from 'console';
 import { useRouter } from 'next/navigation';
-import { signIn, signUp } from '@/lib/actions/user.actions';
+import { getLoggedInUser, signIn, signUp } from '@/lib/actions/user.actions';
 
 
 
@@ -55,18 +55,18 @@ const AuthForm = ({type}: {type :string}) => {
 
         if(type === 'sign-in'){
             const response = await signIn({
-                email: data.email,
-               password: data.password,
-             })
-     if(response) router.push('/')
-         }
-    }catch (error) {
-        console.log(error);
-    }finally{
-        setIsLoading(false);
-    }
+                 email: data.email,
+              password: data.password,
+              })
+            if(response) router.push('/')
+                }
+            }catch (error) {
+                console.log(error);
+            }finally{
+                setIsLoading(false);
+            }
     
-  }
+        }
 
   return (
     <section className="auth-form">
@@ -112,7 +112,6 @@ const AuthForm = ({type}: {type :string}) => {
                         <CustomInput control={form.control} name="lastName" label="Last Name" placeholder="Enter your last name"/>
                         </div>
                         <CustomInput control={form.control} name="address1" label="Address" placeholder="Enter your specific address"/>
-                        <CustomInput control={form.control} name="city" label="City" placeholder="Enter your city"/>
                         <div className="flex gap-4">
                         <CustomInput control={form.control} name="voivodeship" label="Voivodeship" placeholder="Example: Lubelskie"/>
                         <CustomInput control={form.control} name="postalCode" label="Postal code" placeholder="Example: 20-222"/>
