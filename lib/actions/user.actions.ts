@@ -34,7 +34,7 @@ export const signUp = async (userData:SignUpParams) => {
   });
 
 
-  return parseStringify(newUserAccount);
+  return parseStringify(newUser);
         
     } catch (error) {
         console.error('Error', error);
