@@ -59,7 +59,7 @@ export const signUp = async ({ password, ...userData }: SignUpParams) => {
             ID.unique(),
             {
                 ...userData,
-                UserId: newUserAccount.$id,
+                userId: newUserAccount.$id,
                 dwollaCustomerId,
                 dwollaCustomerUrl
             }

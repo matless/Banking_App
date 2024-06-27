@@ -56,13 +56,15 @@ const AuthForm = ({type}: {type :string}) => {
             const userData = {
                 firstName: data.firstName!,
                 lastName: data.lastName!,
-                adress1: data.address1!,
+                address1: data.address1!,
                 city: data.city!,
-                voivodeship: data.voivodeship!,
+                state: data.state!,
                 postalCode: data.postalCode!,
                 dateOfBirth: data.dateOfBirth!,
+                ssn: data.ssn!,
                 email: data.email,
-                password: data.password
+                password: data.password,
+               
     
             }
             const newUser = await signUp(userData);
@@ -130,11 +132,14 @@ const AuthForm = ({type}: {type :string}) => {
                         </div>
                         <CustomInput control={form.control} name="address1" label="Address" placeholder="Enter your specific address"/>
                         <div className="flex gap-4">
-                        <CustomInput control={form.control} name="voivodeship" label="Voivodeship" placeholder="Example: Lubelskie"/>
+                        <CustomInput control={form.control} name="state" label="state" placeholder="Example: CA"/>
                         <CustomInput control={form.control} name="postalCode" label="Postal code" placeholder="Example: 20-222"/>
                         </div>
                         <CustomInput control={form.control} name="city" label="City" placeholder="Enter your city"/>
                         <CustomInput control={form.control} name="dateOfBirth" label="Date of birth" placeholder="YYYY-MM-DD"/>
+                        <CustomInput control={form.control} name="ssn" label="SSN" placeholder="Example: 1234"/>
+
+
                         </>
                     )}
                     
