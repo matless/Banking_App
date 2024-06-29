@@ -16,6 +16,8 @@ const accountsData = accounts?.data;
   const appwriteItemId = (id as string) || accountsData[0]?.appwriteItemId;
 
   const account = await getAccount({appwriteItemId })
+
+  
   return (
     
     <section className="home">
@@ -24,7 +26,7 @@ const accountsData = accounts?.data;
           <HeaderBox 
           type= "greeting"
           title = "Welcome"
-          user = {LoggedIn?.name || 'Guest'}
+          user = {LoggedIn?.firstName || 'Guest'}
           subtext = "Access and manage your account and transactions efficiently."
           />
 
@@ -39,8 +41,8 @@ const accountsData = accounts?.data;
 
       <RightSidebar
       user={LoggedIn}
-      transactions={[]}
-      banks={[{currentBalance: 123.50},{currentBalance: 500}]}/>
+      transactions={[accounts?.transactions]}
+      banks={accountsData?.slice(0,2)}/>
     </section>
   )
 }
