@@ -9,9 +9,9 @@ import React from 'react';
 
 const Home = async ({searchParams: {id, page}} : SearchParamProps) => {
   const currentPage = Number(page as string) || 1;
-  const LoggedIn = await getLoggedInUser();
+  const loggedIn = await getLoggedInUser();
   const accounts =  await getAccounts({
-    userId : LoggedIn.$id
+    userId : loggedIn.$id
   })
   if(!accounts) return;
 const accountsData = accounts?.data;
@@ -28,7 +28,7 @@ const accountsData = accounts?.data;
           <HeaderBox 
           type= "greeting"
           title = "Welcome"
-          user = {LoggedIn?.firstName || 'Guest'}
+          user = {loggedIn?.firstName || 'Guest'}
           subtext = "Access and manage your account and transactions efficiently."
           />
 
@@ -46,7 +46,7 @@ const accountsData = accounts?.data;
       </div>
 
       <RightSidebar
-      user={LoggedIn}
+      user={loggedIn}
       transactions={[accounts?.transactions]}
       banks={accountsData?.slice(0,2)}/>
     </section>
