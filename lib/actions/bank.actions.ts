@@ -80,7 +80,7 @@ export const getAccount = async ({ appwriteItemId }: getAccountProps) => {
       bankId: bank.$id,
     });
 
-    const transferTransactions = transferTransactionsData.documents.map(
+    const transferTransactions = transferTransactionsData?.documents?.map(
       (transferData: Transaction) => ({
         id: transferData.$id,
         name: transferData.name!,
@@ -90,7 +90,7 @@ export const getAccount = async ({ appwriteItemId }: getAccountProps) => {
         category: transferData.category,
         type: transferData.senderBankId === bank.$id ? "debit" : "credit",
       })
-    );
+    ) || [];
 
     // get institution info from plaid
     const institution = await getInstitution({
@@ -138,9 +138,9 @@ export const getInstitution = async ({
       country_codes: ["US"] as CountryCode[],
     });
 
-    const intitution = institutionResponse.data.institution;
+    const institution = institutionResponse.data.institution;
 
-    return parseStringify(intitution);
+    return parseStringify(institution);
   } catch (error) {
     console.error("An error occurred while getting the accounts:", error);
   }

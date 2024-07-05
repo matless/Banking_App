@@ -26,7 +26,7 @@ import {
     )
   } 
   
-  const TransactionsTable = ({ transactions }: TransactionTableProps) => {
+  const TransactionsTable = ({ transactions = [] }: TransactionTableProps) => {
     return (
       <Table>
         <TableHeader className="bg-[#f9fafb]">
