@@ -1,5 +1,5 @@
 import TransactionsTable from '@/components/TransactionsTable';
-import HeaderBox from '@/components/ui/HeaderBox'
+import HeaderBox from '@/components/HeaderBox'
 import { getAccount, getAccounts } from '@/lib/actions/bank.actions';
 import { getLoggedInUser } from '@/lib/actions/user.actions';
 import { formatAmount } from '@/lib/utils';
@@ -36,7 +36,7 @@ const TransactionHistory = async ({searchParams: {id, page}}: SearchParamProps) 
             </p>
             <p className="text-14 font-semibold tracking-[1.1px] text-white">
                     ●●●● ●●●● ●●●● {account?.data.mask}
-                            1234
+                            
                
              </p>
           </div>
