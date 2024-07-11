@@ -33,7 +33,7 @@ const accountsData = accounts?.data;
           />
 
           <TotalBalanceBox
-          accounts = {[accountsData]}
+          accounts = {accountsData}
           totalBanks={accounts?.totalBanks}
           totalCurrentBalance={accounts?.totalCurrentBalance} />
         </header>
